@@ -2,8 +2,45 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
 }
 
+@mixin flexCenter(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+$primaryBackgroundColor:#243950;
+$secondaryBackgroundColor:#1f4163;
+
 body{
-    background-color: burlywood;
+    background-color: #243950;
+
+    #Main{
+        height: 100vh;
+        @include flexCenter();
+        #main-content{
+            background: $secondaryBackgroundColor;
+            text-align: center;
+            width: 50%;
+            height: 50%;
+            @include flexCenter();
+            flex-direction: column;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px 1px rgba(0,0,0,0.4);
+            #help{
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    #main-content{
+        width:70% !important;
+    }
 }
