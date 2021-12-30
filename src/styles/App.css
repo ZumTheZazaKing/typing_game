@@ -33,6 +33,7 @@ body #Main #main-content {
   flex-direction: column;
   border-radius: 5px;
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.4);
+  padding: 10px;
 }
 body #Main #main-content #help {
   position: absolute;
@@ -54,15 +55,39 @@ body #Difficulty #difficulty-back-button {
 body #Game {
   width: 100vw;
   height: 100vh;
-  border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body #Game #game-focus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  background: #1f4163;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.4);
+  width: 50%;
+}
+body #Game #game-focus #score {
+  align-self: flex-start;
+}
+body #End {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 600px) {
   #main-content {
     width: 70% !important;
+  }
+
+  #game-focus {
+    width: 80% !important;
   }
 }
 

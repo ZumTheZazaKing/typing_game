@@ -5,14 +5,14 @@ import GameFocus from '../components/GameFocus';
 
 export const Game = () => {
 
-    const { gameStart, difficulty } = useContext(Context);
+    const { gameStart } = useContext(Context);
     const navigate = useNavigate();
     const [countdown, setCountdown] = useState(3);
 
     useEffect(() => {
-        //if(!gameStart)return navigate('/');
+        if(!gameStart)return navigate('/');
         const countingDown = setInterval(() => {
-            setCountdown(countdownn => countdownn - 1);
+            setCountdown(count => count - 1);
         }, 1000)
         setTimeout(() => {
             clearInterval(countingDown);
@@ -23,7 +23,7 @@ export const Game = () => {
 
     return (<div id="Game">
         {countdown > 0 ? <h1>{countdown}</h1> : ""}
-        {countdown === 0 ? <h1>START!</h1> : ""}
+        {countdown === 0 ? <h1>TYPE!</h1> : ""}
         {countdown < 0 ? 
         <GameFocus/>
         

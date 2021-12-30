@@ -13,6 +13,7 @@
 }
 $primaryBackgroundColor:#243950;
 $secondaryBackgroundColor:#1f4163;
+$boxShadowForAll:0 2px 4px 1px rgba(0,0,0,0.4);
 
 body{
     background-color: #243950;
@@ -36,7 +37,8 @@ body{
             @include flexCenter();
             flex-direction: column;
             border-radius: 5px;
-            box-shadow: 0 2px 4px 1px rgba(0,0,0,0.4);
+            box-shadow: $boxShadowForAll;
+            padding: 10px;
             #help{
                 position: absolute;
                 bottom: 10px;
@@ -59,8 +61,25 @@ body{
     #Game{
         width: 100vw;
         height: 100vh;
-        border: 1px solid white;
         @include flexCenter();
+        #game-focus{
+            @include flexCenter();
+            flex-direction: column;
+            padding: 10px;
+            background: $secondaryBackgroundColor;
+            border-radius:10px;
+            box-shadow: $boxShadowForAll;
+            width: 50%;
+            #score{
+                align-self: flex-start;
+            }
+        }
+    }
+
+    #End{
+        @include flexCenter();
+        height: 100vh;
+        flex-direction: column;
     }
 
 }
@@ -68,5 +87,8 @@ body{
 @media only screen and (max-width: 600px) {
     #main-content{
         width:70% !important;
+    }
+    #game-focus{
+        width:80% !important;
     }
 }

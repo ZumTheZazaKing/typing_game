@@ -32,7 +32,7 @@ export const Main = () => {
                         1. Upon starting the game, you will be given a selection of difficulties.
                         <br/><br/>
                         2. After choosing a difficulty, you will be given a random word to type. 
-                        You must type that word correctly within the initial time.
+                        You must type that word correctly within the initial time (10s).
                         <br/><br/>
                         3. If you succeed in typing the word, you will be given more time 
                         (scales with difficulty) and a new word will be given for you to type next.

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function StartButton () {
 
-    const { setGameStart } = useContext(Context);
+    const { setGameStart, loadingWords } = useContext(Context);
     const navigate = useNavigate();
 
     const startGame = () => {
@@ -14,7 +14,7 @@ export default function StartButton () {
         navigate('/difficulty');
     }
 
-    return (<Button id="start-button" variant="contained" onClick={() => {startGame()}}>
-            Start
+    return (<Button disabled={loadingWords} id="start-button" variant="contained" onClick={() => {startGame()}}>
+            {loadingWords ? 'Loading Words...' : 'Start'}
         </Button>)
 }
