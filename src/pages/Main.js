@@ -5,8 +5,9 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
+
+import StartButton from '../components/StartButton';
 
 export const Main = () => {
 
@@ -17,7 +18,7 @@ export const Main = () => {
             <div>
                 <h1>Zum's Typing Game</h1>
                 <br/>
-                <Button variant="contained">Start</Button>
+                <StartButton/>
             </div>
             <IconButton id="help" onClick={() => setMainHelpOpen(true)}>
                 <QuestionMarkIcon />
@@ -37,7 +38,7 @@ export const Main = () => {
                         (scales with difficulty) and a new word will be given for you to type next.
                         <br/><br/>
                         4. The game ends when the time runs out so it's only a matter of how long you
-                        last.
+                        last typing the words correctly.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

@@ -17,6 +17,14 @@ $secondaryBackgroundColor:#1f4163;
 body{
     background-color: #243950;
 
+    .loading{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
     #Main{
         height: 100vh;
         @include flexCenter();
@@ -35,6 +43,24 @@ body{
                 right: 10px;
             }
         }
+    }
+
+    #Difficulty{
+        height: 100vh;
+        @include flexCenter();
+        flex-direction: column;
+        #difficulty-back-button{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    }
+
+    #Game{
+        width: 100vw;
+        height: 100vh;
+        border: 1px solid white;
+        @include flexCenter();
     }
 
 }

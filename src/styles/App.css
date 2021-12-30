@@ -9,6 +9,13 @@
 body {
   background-color: #243950;
 }
+body .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
 body #Main {
   height: 100vh;
   display: flex;
@@ -31,6 +38,26 @@ body #Main #main-content #help {
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+body #Difficulty {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body #Difficulty #difficulty-back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+body #Game {
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
