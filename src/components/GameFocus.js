@@ -1,19 +1,22 @@
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useContext, useState, useRef } from 'react';
 import { Context } from '../context';
 import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
+import BackgroundMusic from '../audio/background.mp3';
 
 export default function GameFocus(){
 
     const { difficulty, score, words, setScore } = useContext(Context);
     const [word, setWord] = useState('');
     const [timeLeft, setTimeLeft] = useState(10);
+    const audioRef = useRef();
     const navigate = useNavigate();
 
     useEffect(() => {
         const wordQuery = Math.floor(Math.random() * words.length);
         setWord(words[wordQuery]);
+        audioRef.current.play();
 
         const timer = setInterval(() => {
             setTimeLeft(timeLeftToTry => timeLeftToTry - 1);
@@ -28,6 +31,8 @@ export default function GameFocus(){
 
         if(timeLeft === 0){
             navigate('/end');
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
         }
 
     },[timeLeft, navigate])
@@ -68,5 +73,6 @@ export default function GameFocus(){
             onChange={e => checkInput(e)}
             autoFocus
         />
+        <audio ref={audioRef} src={BackgroundMusic} loop/>
     </div>)
 }
