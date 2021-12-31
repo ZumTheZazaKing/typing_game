@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { Context } from '../context';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import { FacebookShareButton, FacebookIcon } from 'react-share';
 
 export const End = () => {
 
@@ -25,6 +26,14 @@ export const End = () => {
         <p id="score">
             You got <b>{score}</b> {score === 1 ? "word" : "words"} on <b>{difficulty.toUpperCase()}</b> difficulty.
         </p>
+        <br/>
+        Share:
+        <FacebookShareButton 
+            url={"https://zumspeedtype.netlify.app"}
+            quote={`I got ${score} words on ${difficulty.toUpperCase()} difficulty!`}
+        >
+            <FacebookIcon size={32} round />
+        </FacebookShareButton>
         <br/>
         <Button variant="contained" onClick={() => goBackToMain()}>
             Main Menu
