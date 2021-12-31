@@ -26,11 +26,15 @@ export const Difficulty = () => {
         setDifficulty('hard');
         navigate('/game');
     }
+    const chooseInsane = () => {
+        setDifficulty('insane');
+        navigate('/game');
+    }
 
     return (<div id="Difficulty">
         <DifficultyBack/>
         <h2>Choose Difficulty</h2>
         <br/>
-        <DifficultySelection actions={{'chooseEasy':chooseEasy, 'chooseNormal':chooseNormal, 'chooseHard':chooseHard}}/>
+        <DifficultySelection actions={{'chooseEasy':chooseEasy, 'chooseNormal':chooseNormal, 'chooseHard':chooseHard, 'chooseInsane':chooseInsane}}/>
     </div>)
 }

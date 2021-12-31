@@ -16,7 +16,7 @@ export const Main = () => {
     return (<div id="Main">
         <div id="main-content">
             <div>
-                <h1>Zum's Typing Game</h1>
+                <h1>Zum's Speed Typing Game</h1>
                 <br/>
                 <StartButton/>
             </div>

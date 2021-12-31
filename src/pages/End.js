@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 
 export const End = () => {
 
-    const { score, gameStart, setGameStart, setDifficulty, setScore } = useContext(Context);
+    const { score, gameStart, setGameStart, setDifficulty, setScore, difficulty } = useContext(Context);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,7 +22,9 @@ export const End = () => {
     return (<div id="End">
         <h1>GAME OVER</h1>
         <br/>
-        <h3>Your score: {score}</h3>
+        <p id="score">
+            You got <b>{score}</b> {score === 1 ? "word" : "words"} on <b>{difficulty.toUpperCase()}</b> difficulty.
+        </p>
         <br/>
         <Button variant="contained" onClick={() => goBackToMain()}>
             Main Menu

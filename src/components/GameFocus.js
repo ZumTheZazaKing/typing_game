@@ -40,9 +40,10 @@ export default function GameFocus(){
             generateNewWord();
             if(timeLeft >= 100 || timeLeft + 4 >= 100 || timeLeft + 2 >= 100 || timeLeft + 1 >= 100)return;
             switch(difficulty){
-                case 'easy': setTimeLeft(timeLeft + 4); break;
-                case 'normal': setTimeLeft(timeLeft + 2); break;
-                case 'hard': setTimeLeft(timeLeft + 1); break;
+                case 'easy': setTimeLeft(timeLeft + 6); break;
+                case 'normal': setTimeLeft(timeLeft + 4); break;
+                case 'hard': setTimeLeft(timeLeft + 2); break;
+                case 'insane': setTimeLeft(timeLeft + 1); break;
                 default:break;
             }
         }
