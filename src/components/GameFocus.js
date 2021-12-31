@@ -16,6 +16,8 @@ export default function GameFocus(){
     useEffect(() => {
         const wordQuery = Math.floor(Math.random() * words.length);
         setWord(words[wordQuery]);
+        audioRef.current.currentTime = 0;
+        audioRef.current.muted = false;
         audioRef.current.play();
 
         const timer = setInterval(() => {
@@ -32,6 +34,7 @@ export default function GameFocus(){
         if(timeLeft === 0){
             navigate('/end');
             audioRef.current.pause();
+            audioRef.current.muted = true;
             audioRef.current.currentTime = 0;
         }
 
@@ -73,6 +76,6 @@ export default function GameFocus(){
             onChange={e => checkInput(e)}
             autoFocus
         />
-        <audio ref={audioRef} src={BackgroundMusic} loop/>
+        <audio ref={audioRef} src={BackgroundMusic} muted loop/>
     </div>)
 }
