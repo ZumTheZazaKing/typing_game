@@ -10,7 +10,7 @@ export const End = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!gameStart)return navigate("/");
+        if(!gameStart)return navigate('/');
     })
 
     const goBackToMain = () => {
@@ -24,13 +24,13 @@ export const End = () => {
         <h1>GAME OVER</h1>
         <br/>
         <p id="score">
-            You got <b>{score}</b> {score === 1 ? "word" : "words"} on <b>{difficulty.toUpperCase()}</b> difficulty.
+            You got <b>{score}</b> {score === 1 ? "word" : "words"} on <b>{difficulty ? difficulty.toUpperCase() : ""}</b> difficulty.
         </p>
         <br/>
         Share:
         <FacebookShareButton 
             url={"https://zumspeedtype.netlify.app"}
-            quote={`I got ${score} words on ${difficulty.toUpperCase()} difficulty!`}
+            quote={difficulty ? `I got ${score} words on ${difficulty.toUpperCase()} difficulty!` : ""}
         >
             <FacebookIcon size={32} round />
         </FacebookShareButton>
