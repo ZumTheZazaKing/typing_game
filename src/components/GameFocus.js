@@ -9,13 +9,13 @@ export default function GameFocus(){
 
     const { difficulty, score, words, setScore } = useContext(Context);
     const [word, setWord] = useState('');
+    const [nextWord, setNextWords] = useState('');
     const [timeLeft, setTimeLeft] = useState(10);
     const audioRef = useRef();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const wordQuery = Math.floor(Math.random() * words.length);
-        setWord(words[wordQuery]);
+        generateNewWord();
         audioRef.current.currentTime = 0;
         audioRef.current.muted = false;
         audioRef.current.play();
@@ -58,14 +58,25 @@ export default function GameFocus(){
     }
 
     const generateNewWord = () => {
-        const wordQuery = Math.floor(Math.random() * words.length);
-        setWord(words[wordQuery]);
+        if(!nextWord){
+            const wordQuery = Math.floor(Math.random() * words.length);
+            setWord(words[wordQuery]);
+            const nextWordQuery = Math.floor(Math.random() * words.length);
+            setNextWords(words[nextWordQuery]);
+        } else {
+            setWord(nextWord);
+            const nextWordQuery = Math.floor(Math.random() * words.length);
+            setNextWords(words[nextWordQuery]);
+        }
+        
     }
 
     return (<div id="game-focus">
         <p id="score">Score: {score}</p>
         <br/>
         <CircularProgress variant="determinate" value={(timeLeft/100)*100} thickness={22} size={40}/>
+        <br/>
+        <p id="nextWord">Next: <b>{nextWord}</b></p>
         <br/>
         <h2>{word}</h2>
         <br/>
