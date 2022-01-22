@@ -23,8 +23,9 @@ function App() {
     fetch("https://random-word-api.herokuapp.com/word?number=1000000&swear=0")
     .then(res => res.json())
     .then(data => {
-      setWords(data);
-      localStorage.setItem("words", JSON.stringify(data));
+      const wordsToStore = data.filter(word => word.length > 3 && word.length < 10);
+      setWords(wordsToStore);
+      localStorage.setItem("words", JSON.stringify(wordsToStore));
       setLoadingWords(false);
     })
 
